@@ -29,9 +29,10 @@ class CrimeFragment : Fragment() {
                                 savedInstanceState: Bundle? ): View? {
         // Inflate the layout for this fragment
 
-        titleField = view?.findViewById(R.id.crime_title) as EditText
-        dateButton = view?.findViewById(R.id.crime_date) as Button
-        solvedCheckBox = view?.findViewById(R.id.crime_solved) as CheckBox
+        val view = inflater.inflate(R.layout.fragment_crime, container, false)
+        titleField = view.findViewById(R.id.crime_title) as EditText
+        dateButton = view.findViewById(R.id.crime_date) as Button
+        solvedCheckBox = view.findViewById(R.id.crime_solved) as CheckBox
 
         dateButton.apply {
             text = crime.date.toString()
@@ -44,7 +45,7 @@ class CrimeFragment : Fragment() {
             }
         }
 
-        return inflater.inflate(R.layout.fragment_crime, container, false)
+        return view
     }
 
     override fun onStart() {
